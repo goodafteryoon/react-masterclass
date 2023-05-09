@@ -1,4 +1,4 @@
-import { text } from 'stream/consumers';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 interface ContainerProps {
@@ -20,11 +20,16 @@ interface CircleProps {
   text?: string;
 }
 
-function Circle({ bgColor, borderColor, text = 'dafault text' }: CircleProps) {
+function Circle({ bgColor, borderColor }: CircleProps) {
+  const [value, setValue] = useState<number | string>(0);
+  setValue(2);
+  setValue('hello');
+  // setValue(true);
   return (
-    <Container bgColor={bgColor} borderColor={borderColor ?? bgColor}>
-      {text}
-    </Container>
+    <Container
+      bgColor={bgColor}
+      borderColor={borderColor ?? bgColor}
+    ></Container>
   );
 }
 
